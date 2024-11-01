@@ -2,82 +2,55 @@ import pandas as pd
 import vectorbt as vbt
 from openbb import obb
 
-# Załóżenia
-initial_cash = 10000
-fee = 0.001  # Opłata transakcyjna 0.1%
+# Trading instrument and interval configuration
+trading_instrument = 'EURUSD'
+median_interval = 1440
 
-# Pobranie danych minutowych dla Swiss Re
-dane = obb.equity.price.historical(
+# Basic variables
+fee = 0.001  # Transaction fee 0.1%
+risk_ratio = 0.98
+available_capital = 10000
+band_width_factor = 1.5
+median_periods = 6
+risk_level = 0.004
+stop_loss_percentage = 0.30
+
+# Download weekly data
+weekly_data = obb.equity.price.historical(
     symbol='SREN.SW',
-    interval='1m',  # Interwał minutowy
-    start_date='2024-01-01',  # Data początkowa
-    end_date='2024-10-31',    # Data końcowa
-    provider='yfinance'       # Dostawca danych
+    interval='1W',
+    start_date='2024-08-01',  # start date
+    end_date='2024-10-31',    # end date
+    provider='yfinance'       # Data provider
 )
 
-# Konwersja danych do formatu pandas DataFrame
-data_list = [
-    {
-        'date': item.date,
-        'open': item.open,
-        'high': item.high,
-        'low': item.low,
-        'close': item.close,
-        'volume': item.volume
-    }
-    for item in dane.results
-]
+# Convert the downloaded data to a DataFrame
+weekly_data_df = weekly_data.to_dataframe()
 
-df = pd.DataFrame(data_list)
-prices = df.set_index('date')['close']
+# Calculate the median from the specified number of periods
+current_median = round(weekly_data_df['close'].tail(median_periods).median(), 2)
 
-# Obliczenia mediany i zmiennych
-prices_daily = prices.resample('D').last()  # Próbkowanie danych minutowych do dziennego interwału
-window_size = 5  # Mediana tygodniowa (5 dni roboczych)
-current_median = prices_daily.rolling(window=window_size).median()
-current_median = current_median.reindex(prices.index, method='ffill')  # Przypisanie mediany do minutowego interwału
-previous_median = current_median.shift(1)
+# Calculate the median from the previous period
+previous_median = round(weekly_data_df['close'].iloc[-(median_periods + 1):-1].median(), 2)
 
-# Obliczanie górnej i dolnej bandy zgodnie z medianą
-upper_band = current_median + 1.5 * current_median.rolling(window=window_size).std()
-lower_band = current_median - 1.5 * current_median.rolling(window=window_size).std()
-upper_band = upper_band.reindex(prices.index, method='ffill')
-lower_band = lower_band.reindex(prices.index, method='ffill')
+# Sample values for calculations (to be dynamically updated in practice)
+current_price = 1.0856
+lower_band = 1.0750
+upper_band = 1.0900
 
-# Definicje warunków otwarcia pozycji
-entries_long = (current_median > previous_median) & (prices > current_median)
-exits_long = (current_median <= previous_median) | (prices <= lower_band) | (prices <= (current_median - 0.3 * (current_median - lower_band)))
+# Calculate the current risk ratio
+current_risk_ratio = round(current_median / current_price, 5)
 
-# Definicje warunków otwarcia pozycji Short
-entries_short = (current_median < previous_median) & (prices < current_median)
-exits_short = (current_median >= previous_median) | (prices >= upper_band) | (prices >= (current_median + 0.3 * (upper_band - current_median)))
+# Calculate stop loss (SL) and take profit (TP) values for long and short positions
+SL_long = round(current_median - (stop_loss_percentage * (current_median - lower_band)), 5)
+TP_long = upper_band
 
-# Backtestowanie strategii dla pozycji Long
-pf_long = vbt.Portfolio.from_signals(
-    close=prices,
-    entries=entries_long,
-    exits=exits_long,
-    init_cash=initial_cash,
-    fees=fee,
-    freq='1min'  # Ustawienie częstotliwości na 1 minutę
-)
+SL_short = round(current_median + (stop_loss_percentage * (upper_band - current_median)), 5)
+TP_short = lower_band
 
-# Backtestowanie strategii dla pozycji Short
-pf_short = vbt.Portfolio.from_signals(
-    close=prices,
-    entries=entries_short,
-    exits=exits_short,
-    init_cash=initial_cash,
-    fees=fee,
-    freq='1min'  # Ustawienie częstotliwości na 1 minutę
-)
-
-# Statystyki
-print("Wyniki dla pozycji Long:")
-print(pf_long.stats())
-print("\nWyniki dla pozycji Short:")
-print(pf_short.stats())
-
-# Wizualizacja wyników
-pf_long.plot().show()
-pf_short.plot().show()
+# Output calculated values for verification
+print(f"Current weekly median: {current_median}")
+print(f"Previous weekly median: {previous_median}")
+print(f"Current Risk Ratio: {current_risk_ratio}")
+print(f"SL Long: {SL_long}, TP Long: {TP_long}")
+print(f"SL Short: {SL_short}, TP Short: {TP_short}")
