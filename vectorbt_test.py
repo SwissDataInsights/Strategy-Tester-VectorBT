@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 fee = 0.001  # Transaction fee 0.1%
 risk_ratio = 0.98
 available_capital = 10000
-band_width_factor = 1.5
+band_width_factor = 0.6
 median_periods = 6
 risk_level = 0.004
 stop_loss_percentage = 0.30
@@ -22,39 +22,19 @@ weekly_data = obb.equity.price.historical(
 )
 
 # Download 5-minute data for a smaller range (one month)
-try:
-    one_minute_data = obb.equity.price.historical(
+one_minute_data = obb.equity.price.historical(
         symbol='SREN.SW',
         interval='5m',
         start_date='2024-09-01',  # start date
-        end_date='2024-09-30',  # end date
+        end_date='2024-09-30',    # end date
         provider='yfinance'  # Data provider
     )
-    # Download 1-hour data
-    one_hour_data = obb.equity.price.historical(
-        symbol='SREN.SW',
-        interval='1h',
-        start_date='2024-09-01',  # start date
-        end_date='2024-09-30',  # end date
-        provider='yfinance'  # Data provider
-    )
-    # Convert the downloaded data to DataFrame
-    one_minute_data_df = one_minute_data.to_dataframe()
-    one_minute_data_df = one_minute_data_df.round(2)
-    # Add a column to the one-minute data indicating the week it belongs to
-    one_minute_data_df['week'] = pd.to_datetime(one_minute_data_df.index).to_period('W')
-
-except Exception as e:
-    print(f"Error downloading 5-minute data: {e}")
-    one_minute_data_df = pd.DataFrame()  # Empty DataFrame to handle gracefully
 
 # Convert the downloaded data to DataFrames
 weekly_data_df = weekly_data.to_dataframe()
 weekly_data_df = weekly_data_df.round(2)
-
-# Convert 1-hour data to DataFrame
-one_hour_data_df = one_hour_data.to_dataframe()
-one_hour_data_df = one_hour_data_df.round(2)
+one_minute_data_df = one_minute_data.to_dataframe()
+one_minute_data_df = one_minute_data_df.round(2)
 
 # Add a column to the one-minute data indicating the week it belongs to
 one_minute_data_df['week'] = pd.to_datetime(one_minute_data_df.index).to_period('W')
@@ -95,9 +75,9 @@ print(f"Current Risk Ratio: {current_risk_ratio}")
 print(f"SL Long: {SL_long}, TP Long: {TP_long}")
 print(f"SL Short: {SL_short}, TP Short: {TP_short}")
 
-# Plot the price, median, bands, and 1-hour data
+# Plot the price, median, bands, and 5-minute data
 plt.figure(figsize=(12, 6))
-plt.plot(one_hour_data_df.index, one_hour_data_df['close'], label='Price (1-Hour Data)', color='blue', alpha=0.5)
+plt.plot(one_minute_data_df.index, one_minute_data_df['close'], label='Price (5-Min Data)', color='blue', alpha=0.5)
 plt.plot(weekly_data_df.index, weekly_data_df['median'], label='Median', color='orange', linestyle='--')
 plt.plot(weekly_data_df.index, weekly_data_df['band_upper'], label='Upper Band', color='green', linestyle='-.')
 plt.plot(weekly_data_df.index, weekly_data_df['band_lower'], label='Lower Band', color='red', linestyle='-.')
@@ -109,7 +89,7 @@ plt.scatter(weekly_data_df.index, weekly_data_df['low'], label='Weekly Low', col
 plt.title('SwissRe Weekly Median, Bands, and High/Low')
 plt.xlabel('Date')
 plt.ylabel('Price')
-plt.ylim(70, 160)
+plt.ylim(90, 130)
 plt.legend()
 plt.grid(True)
 plt.show()
