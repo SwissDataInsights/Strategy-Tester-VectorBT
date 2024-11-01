@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83ad3ffc-dd9c-4911-bb3f-f7214f0a911f" name="Changes" comment="init commit">
+    <list default="true" id="83ad3ffc-dd9c-4911-bb3f-f7214f0a911f" name="Changes" comment="general outline of the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vectorbt_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/vectorbt_test.py" afterDir="false" />
     </list>
@@ -72,7 +72,8 @@
       <workItem from="1730447223649" duration="25000" />
       <workItem from="1730447275798" duration="1101000" />
       <workItem from="1730448469031" duration="768000" />
-      <workItem from="1730449315795" duration="1453000" />
+      <workItem from="1730449315795" duration="1889000" />
+      <workItem from="1730451562242" duration="5453000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -82,7 +83,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730448808763</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="general outline of the code">
+      <option name="closed" value="true" />
+      <created>1730450804198</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730450804198</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,9 +99,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+    <MESSAGE value="general outline of the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="general outline of the code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Strategy_tester$vectorbt_test.coverage" NAME="vectorbt_test Coverage Results" MODIFIED="1730450652656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$vectorbt_test.coverage" NAME="vectorbt_test Coverage Results" MODIFIED="1730459834060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
