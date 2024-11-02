@@ -4,3 +4,4 @@ openbb
 matplotlib
 xlsxwriter
 yaml
+yahoo_fin

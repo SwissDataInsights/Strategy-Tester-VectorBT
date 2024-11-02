@@ -1,1 +1,7 @@
-days: 50
+days: 500
+median_periods: 5
+band_width_factor: 1.7
+trading_instrument: "SREN.SW"
+
+# "UBSG.SW" "ABBN.SW" 'ALC.SW' 'GEBN.SW' 'GIVN.SW' 'HOLN.SW' 'KNIN.SW' 'LOGN.SW' 'LONN.SW' 'NESN.SW' 'NOVN.SW': 'Novartis'
+# 'PGHN.SW' 'CFR.SW' 'ROG.SW' 'SIKA.SW' 'SOON.SW' 'SLHN.SW' 'SCMN.SW' 'UBSG.SW' 'ZURN.SW': 'ZurichInsurance'
