@@ -32,25 +32,6 @@ hourly_data = vbt.YFData.download(
     interval="1h")
 
 hourly_data = hourly_data.get()
-"""
-weekly_data = weekly_data.get()
-
-# Calculate the rolling median for the specified number of periods
-weekly_data['Rolling Median'] = round(weekly_data['Close'].rolling(window=median_periods).median(),2)
-
-# Calculate the rolling standard deviation for the specified number of periods
-weekly_data['Rolling Std Dev'] = weekly_data['Close'].rolling(window=median_periods).std()
-
-# Calculate the upper and lower Bollinger Bands
-weekly_data['Upper Band'] = (weekly_data['Rolling Median'] + band_width_factor * weekly_data['Rolling Std Dev']).round(2)
-weekly_data['Lower Band'] = (weekly_data['Rolling Median'] - band_width_factor * weekly_data['Rolling Std Dev']).round(2)
-
-# Remove the Rolling Std Dev column if you don't want to keep it in the final output
-weekly_data = weekly_data.drop(columns=['Rolling Std Dev'])
-
-# Save data to a CSV file
-weekly_data.to_csv('data/weekly_data.csv', index=True)
-"""
 
 hourly_data.to_csv('data/hourly_data.csv', index=True)
 
@@ -74,9 +55,6 @@ merged_data = pd.merge_asof(
     right_on='Datetime',
     direction='backward'
 )
-
-# Drop the unnecessary columns
-#merged_data = merged_data.drop(columns=['Dividends_x', 'Stock Splits_x', 'Dividends_y', 'Stock Splits_y'])
 
 # Specify the columns you want to round
 columns_to_round = ['Open_x', 'High_x', 'Low_x', 'Close_x', 'Open_y', 'High_y', 'Low_y', 'Close_y']

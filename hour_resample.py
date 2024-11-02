@@ -14,7 +14,7 @@ trading_instrument = settings.get('trading_instrument')
 
 # Ustal zakres dat
 end_date = datetime.datetime.now()
-start_date = end_date - datetime.timedelta(days=days)  # na przykład ostatnie 90 dni
+start_date = end_date - datetime.timedelta(days=days)
 
 # Pobranie danych godzinowych za pomocą vectorbt
 hourly_data = vbt.YFData.download(
@@ -34,10 +34,13 @@ weekly_data = hourly_data.resample('W').agg({
     'Volume': 'sum'     # Suma wolumenu dla tygodnia
 }).dropna()
 
-weekly_data['Rolling Median'] = weekly_data['Close'].rolling(window=median_periods).median().round(2)
+weekly_data['current_median'] = weekly_data['Close'].rolling(window=median_periods).median().round(2)
 weekly_data['Rolling Std Dev'] = weekly_data['Close'].rolling(window=median_periods).std()
-weekly_data['Upper Band'] = (weekly_data['Rolling Median'] + band_width_factor * weekly_data['Rolling Std Dev']).round(2)
-weekly_data['Lower Band'] = (weekly_data['Rolling Median'] - band_width_factor * weekly_data['Rolling Std Dev']).round(2)
+weekly_data['Upper Band'] = (weekly_data['current_median'] + band_width_factor * weekly_data['Rolling Std Dev']).round(2)
+weekly_data['Lower Band'] = (weekly_data['current_median'] - band_width_factor * weekly_data['Rolling Std Dev']).round(2)
+
+# Dodanie kolumny previous_median jako przesunięcia Rolling Median o jeden tydzień
+weekly_data['previous_median'] = weekly_data['current_median'].shift(1)
 
 # Usuń kolumnę Rolling Std Dev, jeśli nie jest potrzebna
 weekly_data = weekly_data.drop(columns=['Rolling Std Dev'])

@@ -17,10 +17,10 @@ plt.figure(figsize=(12, 6))
 plt.plot(merged_data['Datetime'], merged_data['Close_x'], label='Closing Price', color='blue')
 plt.plot(merged_data['Datetime'], merged_data['Upper Band'], label='Upper Band', linestyle='--', color='red')
 plt.plot(merged_data['Datetime'], merged_data['Lower Band'], label='Lower Band', linestyle='--', color='green')
-plt.plot(merged_data['Datetime'], merged_data['Rolling Median'], label='Rolling Median', color='purple')
+plt.plot(merged_data['Datetime'], merged_data['current_median'], label='Rolling Median', color='purple')
 
 # Add titles and labels
-plt.title(f"{trading_instrument} - Closing Price with Bollinger Bands and Rolling Median")
+plt.title(f"{trading_instrument} - Closing Price with Bands and Current Median")
 plt.xlabel("Date")
 plt.ylabel("Price")
 plt.legend()
