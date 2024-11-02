@@ -4,14 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83ad3ffc-dd9c-4911-bb3f-f7214f0a911f" name="Changes" comment="prepary variables for testing">
+    <list default="true" id="83ad3ffc-dd9c-4911-bb3f-f7214f0a911f" name="Changes" comment="version before starting the strategy implementation">
+      <change afterPath="$PROJECT_DIR$/data_preparation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/system_settings.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vbt2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vbt3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vbt_orders.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vbt_reality_check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vectorbt_x.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vectorbt_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/vectorbt_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,7 +59,14 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python.data_preparation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vbt2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vbt3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vbt_orders.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vbt_reality_check.executor&quot;: &quot;Run&quot;,
     &quot;Python.vectorbt_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vectorbt_x.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -75,7 +98,18 @@
       <workItem from="1730447275798" duration="1101000" />
       <workItem from="1730448469031" duration="768000" />
       <workItem from="1730449315795" duration="1889000" />
-      <workItem from="1730451562242" duration="6669000" />
+      <workItem from="1730451562242" duration="9364000" />
+      <workItem from="1730463843492" duration="664000" />
+      <workItem from="1730464676648" duration="346000" />
+      <workItem from="1730465098865" duration="3494000" />
+      <workItem from="1730480799944" duration="2232000" />
+      <workItem from="1730483089772" duration="11564000" />
+      <workItem from="1730495041039" duration="1872000" />
+      <workItem from="1730534478146" duration="8664000" />
+      <workItem from="1730547663588" duration="515000" />
+      <workItem from="1730548240460" duration="23000" />
+      <workItem from="1730548281185" duration="8095000" />
+      <workItem from="1730556872383" duration="318000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -101,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730460168249</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="version before starting the strategy implementation">
+      <option name="closed" value="true" />
+      <created>1730461273932</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730461273932</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,9 +153,17 @@
     <MESSAGE value="init commit" />
     <MESSAGE value="general outline of the code" />
     <MESSAGE value="prepary variables for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="prepary variables for testing" />
+    <MESSAGE value="version before starting the strategy implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="version before starting the strategy implementation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Strategy_tester$vectorbt_test.coverage" NAME="vectorbt_test Coverage Results" MODIFIED="1730461041336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$vbt2.coverage" NAME="vbt2 Coverage Results" MODIFIED="1730495896869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$test.coverage" NAME="test Coverage Results" MODIFIED="1730468637072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$vbt3.coverage" NAME="vbt3 Coverage Results" MODIFIED="1730542640197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$vectorbt_x.coverage" NAME="vectorbt_x Coverage Results" MODIFIED="1730483985410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$vbt_orders.coverage" NAME="vbt_orders Coverage Results" MODIFIED="1730544940889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$vbt_reality_check.coverage" NAME="vbt_reality_check Coverage Results" MODIFIED="1730549047718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$vectorbt_test.coverage" NAME="vectorbt_test Coverage Results" MODIFIED="1730465630795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$data_preparation.coverage" NAME="data_preparation Coverage Results" MODIFIED="1730556774695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
