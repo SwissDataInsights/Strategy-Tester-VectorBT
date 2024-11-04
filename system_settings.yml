@@ -1,10 +1,11 @@
-days: 500
-median_periods: 6
+days: 720
+
 band_width_factor: 1.6
-trading_instrument: "UBSG.SW"
-
-# "SREN.SW""UBSG.SW" "ABBN.SW" 'ALC.SW' 'GEBN.SW' 'GIVN.SW' 'HOLN.SW' 'KNIN.SW' 'LOGN.SW' 'LONN.SW' 'NESN.SW' 'NOVN.SW': 'Novartis'
-# 'PGHN.SW' 'CFR.SW' 'ROG.SW' 'SIKA.SW' 'SOON.SW' 'SLHN.SW' 'SCMN.SW' 'UBSG.SW' 'ZURN.SW': 'ZurichInsurance'
-
+stop_loss_percentage: 0.10
+median_periods: 6
 risk_ratio: 0.90
-stop_loss_percentage: 0.30
+
+trading_instrument: "SREN.SW"
+
+# "UBSG.SW""SREN.SW""UBSG.SW" "ABBN.SW" 'ALC.SW' 'GEBN.SW' 'GIVN.SW' 'HOLN.SW' 'KNIN.SW' 'LOGN.SW' 'LONN.SW' 'NESN.SW' 'NOVN.SW': 'Novartis'
+# 'PGHN.SW' 'CFR.SW' 'ROG.SW' 'SIKA.SW' 'SOON.SW' 'SLHN.SW' 'SCMN.SW' 'UBSG.SW' 'ZURN.SW': 'ZurichInsurance'

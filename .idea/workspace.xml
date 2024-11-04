@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83ad3ffc-dd9c-4911-bb3f-f7214f0a911f" name="Changes" comment="reconstruction of the methodology, resampling of daily to weekly data, adding a control graphic view">
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vectorbt_strategy.py" afterDir="false" />
+    <list default="true" id="83ad3ffc-dd9c-4911-bb3f-f7214f0a911f" name="Changes" comment="add strategy file before multi-parameter testing">
+      <change afterPath="$PROJECT_DIR$/strategy_optimization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/SREN.SW_merged_data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/UBSG.SW_diagnostics.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/UBSG.SW_diagnostics.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/UBSG.SW_merged_data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/UBSG.SW_merged_data.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/hourly_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/hourly_data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/weekly_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/weekly_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_merge.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_merge.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphical_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphical_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hour_resample.py" beforeDir="false" afterPath="$PROJECT_DIR$/hour_resample.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system_settings.yml" beforeDir="false" afterPath="$PROJECT_DIR$/system_settings.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vectorbt_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/vectorbt_strategy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +64,7 @@
     &quot;Python.graphical_view.executor&quot;: &quot;Run&quot;,
     &quot;Python.hour_resample.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.strategy_optimization.executor&quot;: &quot;Run&quot;,
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;Python.vbt2.executor&quot;: &quot;Run&quot;,
     &quot;Python.vbt3.executor&quot;: &quot;Run&quot;,
@@ -120,7 +119,12 @@
       <workItem from="1730558241492" duration="1139000" />
       <workItem from="1730559417402" duration="13007000" />
       <workItem from="1730572604296" duration="705000" />
-      <workItem from="1730573324370" duration="2913000" />
+      <workItem from="1730573324370" duration="5391000" />
+      <workItem from="1730618278559" duration="466000" />
+      <workItem from="1730622350526" duration="54000" />
+      <workItem from="1730622650304" duration="54000" />
+      <workItem from="1730628890797" duration="905000" />
+      <workItem from="1730748204735" duration="1903000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -170,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730563026998</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add strategy file before multi-parameter testing">
+      <option name="closed" value="true" />
+      <created>1730576514193</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730576514193</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,23 +195,25 @@
     <MESSAGE value="version before starting the strategy implementation" />
     <MESSAGE value="data preparation to test" />
     <MESSAGE value="reconstruction of the methodology, resampling of daily to weekly data, adding a control graphic view" />
-    <option name="LAST_COMMIT_MESSAGE" value="reconstruction of the methodology, resampling of daily to weekly data, adding a control graphic view" />
+    <MESSAGE value="add strategy file before multi-parameter testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="add strategy file before multi-parameter testing" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Strategy_tester$vbt2.coverage" NAME="vbt2 Coverage Results" MODIFIED="1730495896869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Strategy_tester$test.coverage" NAME="test Coverage Results" MODIFIED="1730468637072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$dp_test.coverage" NAME="dp_test Coverage Results" MODIFIED="1730562297391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$test.coverage" NAME="test Coverage Results" MODIFIED="1730468637072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vbt_orders.coverage" NAME="vbt_orders Coverage Results" MODIFIED="1730544940889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$strategy_optimization.coverage" NAME="strategy_optimization Coverage Results" MODIFIED="1730578202994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vectorbt_test.coverage" NAME="vectorbt_test Coverage Results" MODIFIED="1730465630795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$data_preparation.coverage" NAME="data_preparation Coverage Results" MODIFIED="1730560029032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$main.coverage" NAME="main Coverage Results" MODIFIED="1730571878535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$vectorbt_strategy.coverage" NAME="vectorbt_strategy Coverage Results" MODIFIED="1730575900910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$main.coverage" NAME="main Coverage Results" MODIFIED="1730750019255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$vectorbt_strategy.coverage" NAME="vectorbt_strategy Coverage Results" MODIFIED="1730750043787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vbt3.coverage" NAME="vbt3 Coverage Results" MODIFIED="1730542640197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$data_preparation.coverage" NAME="data_preparation Coverage Results" MODIFIED="1730562517008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vectorbt_x.coverage" NAME="vectorbt_x Coverage Results" MODIFIED="1730483985410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vbt_reality_check.coverage" NAME="vbt_reality_check Coverage Results" MODIFIED="1730549047718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$hour_resample.coverage" NAME="hour_resample Coverage Results" MODIFIED="1730569620734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$data_merge.coverage" NAME="data_merge Coverage Results" MODIFIED="1730569631206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$graphical_view.coverage" NAME="graphical_view Coverage Results" MODIFIED="1730571893686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$graphical_view.coverage" NAME="graphical_view Coverage Results" MODIFIED="1730749902019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
