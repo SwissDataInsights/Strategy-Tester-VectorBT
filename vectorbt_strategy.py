@@ -1,7 +1,6 @@
 import pandas as pd
 import vectorbt as vbt
 import yaml
-import datetime
 import plotly.io as pio
 
 pio.renderers.default = 'browser'
@@ -14,6 +13,7 @@ days = settings.get('days')
 trading_instrument = settings.get('trading_instrument')
 risk_ratio = settings.get('risk_ratio')
 stop_loss_percentage = settings.get('stop_loss_percentage')
+risk_level = settings.get('risk_level')  # Dodane dla poziomu ryzyka
 
 # Wczytanie pliku danych dla określonego instrumentu
 file_path = f'data/{trading_instrument}_merged_data.xlsx'
@@ -66,33 +66,87 @@ exits_short = (
     (low_price <= TP_short)
 ).fillna(False).astype(bool)
 
-# Dodanie kolumn diagnostycznych do DataFrame
-merged_data['current_median'] = current_median
-merged_data['previous_median'] = previous_median
-merged_data['current_risk_ratio'] = current_risk_ratio
-merged_data['entries_long'] = entries_long
-merged_data['exits_long'] = exits_long
-merged_data['SL_long'] = SL_long
-merged_data['TP_long'] = TP_long
-merged_data['entries_short'] = entries_short
-merged_data['exits_short'] = exits_short
-merged_data['SL_short'] = SL_short
-merged_data['TP_short'] = TP_short
+# Funkcja obliczająca wielkość pozycji dla pozycji długiej
+def calculate_position_size_long(
+    current_median,
+    close_price,
+    stop_loss_percentage,
+    lower_band,
+    available_capital,
+    risk_ratio
+):
+    SL_p = stop_loss_percentage * (current_median - lower_band)
+    SL_long = current_median - SL_p
+    max_loss = close_price - SL_long
+    risk_value = available_capital * risk_ratio
+    position_size = risk_value / max_loss
+    return position_size
 
-# Zapisanie danych diagnostycznych do pliku Excel
-diagnostic_file_path = f'data/{trading_instrument}_diagnostics.xlsx'
-merged_data.to_excel(diagnostic_file_path, index=True)
+# Funkcja obliczająca wielkość pozycji dla pozycji krótkiej
+def calculate_position_size_short(
+    current_median,
+    close_price,
+    stop_loss_percentage,
+    upper_band,
+    available_capital,
+    risk_level
+):
+    # Obliczanie SL dla pozycji krótkiej zgodnie z przedstawioną metodologią
+    SL_p = stop_loss_percentage * (upper_band - current_median)
+    SL_short = current_median + SL_p
+    max_loss = SL_short - close_price
+    risk_value = available_capital * risk_level
+    position_size = risk_value / max_loss
+    return position_size
 
-print(f"Informacje diagnostyczne zapisane do {diagnostic_file_path}")
+# Przygotowanie dostępnego kapitału
+initial_capital = 10000
+available_capital = initial_capital
+position_sizes_long = []
+position_sizes_short = []
 
-# Tworzenie portfela bez dynamicznej wielkości pozycji
+# Iteracja przez dane w celu obliczenia dynamicznej wielkości pozycji dla każdego punktu czasowego
+for i in range(len(merged_data)):
+    current_median_i = current_median.iloc[i]
+    close_price_i = close_price.iloc[i]
+    lower_band_i = lower_band.iloc[i]
+    upper_band_i = upper_band.iloc[i]
+
+    # Obliczenie wielkości pozycji long
+    position_size_long = calculate_position_size_long(
+        current_median=current_median_i,
+        close_price=close_price_i,
+        stop_loss_percentage=stop_loss_percentage,
+        lower_band=lower_band_i,
+        available_capital=available_capital,
+        risk_ratio=risk_ratio
+    )
+    position_sizes_long.append(position_size_long)
+
+    # Obliczenie wielkości pozycji short
+    position_size_short = calculate_position_size_short(
+        current_median=current_median_i,
+        close_price=close_price_i,
+        stop_loss_percentage=stop_loss_percentage,
+        upper_band=upper_band_i,
+        available_capital=available_capital,
+        risk_level=risk_level
+    )
+    position_sizes_short.append(position_size_short)
+
+# Tworzenie serii z wielkością pozycji dla każdej transakcji long i short
+position_sizes_long_series = pd.Series(position_sizes_long, index=merged_data.index)
+position_sizes_short_series = pd.Series(position_sizes_short, index=merged_data.index)
+
+# Tworzenie portfela z dynamiczną wielkością pozycji dla long i short
 pf = vbt.Portfolio.from_signals(
     close=close_price,
     entries=entries_long,
     exits=exits_long,
     short_entries=entries_short,
     short_exits=exits_short,
-    init_cash=10000,
+    size=pd.concat([position_sizes_long_series, position_sizes_short_series], axis=1).max(axis=1),
+    init_cash=initial_capital,
     fees=0.001,
     freq='D'
 )
@@ -100,26 +154,31 @@ pf = vbt.Portfolio.from_signals(
 # Wyciągnięcie informacji o transakcjach
 trades = pf.trades.records_readable
 
-# Zapisanie wykazu transakcji do pliku Excel
+# Konwersja 'Entry Timestamp' na format datetime i ustawienie jako indeks
+trades['Entry Timestamp'] = pd.to_datetime(trades['Entry Timestamp'])
+trades.set_index('Entry Timestamp', inplace=True)
+
+# Dodanie kolumny z wielkością pozycji do DataFrame trades
+# Dopasowanie wielkości pozycji do każdej transakcji na podstawie 'Entry Timestamp'
+trades['Position Size Long'] = position_sizes_long_series.loc[trades.index].values
+trades['Position Size Short'] = position_sizes_short_series.loc[trades.index].values
+
+# Resetowanie indeksu, aby 'Entry Timestamp' był kolumną
+trades.reset_index(inplace=True)
+
+# Zapisanie danych diagnostycznych do pliku Excel
+diagnostic_file_path = f'data/{trading_instrument}_diagnostics.xlsx'
+merged_data.to_excel(diagnostic_file_path, index=True)
+print(f"Informacje diagnostyczne zapisane do {diagnostic_file_path}")
+
+# Zapisanie wykazu transakcji do pliku Excel z kolumnami 'Position Size Long' i 'Position Size Short'
 trades_file_path = f'data/{trading_instrument}_trades.xlsx'
 trades.to_excel(trades_file_path, index=False)
-
 print(f"Wykaz transakcji zapisany do {trades_file_path}")
 
 # Generowanie wykresu z transakcjami
 fig = pf.plot()
 fig.update_layout(title='Portfolio Performance with Long and Short Transactions')
-
-# Dodanie punktów wejścia i wyjścia dla transakcji Long i Short na wykresie
-long_entries_idx = merged_data.index[entries_long]
-long_exits_idx = merged_data.index[exits_long]
-short_entries_idx = merged_data.index[entries_short]
-short_exits_idx = merged_data.index[exits_short]
-
-fig.add_scatter(x=long_entries_idx, y=close_price[entries_long], mode='markers', name='Long Entry', marker=dict(color='green', symbol='triangle-up'))
-fig.add_scatter(x=long_exits_idx, y=close_price[exits_long], mode='markers', name='Long Exit', marker=dict(color='darkgreen', symbol='triangle-down'))
-fig.add_scatter(x=short_entries_idx, y=close_price[entries_short], mode='markers', name='Short Entry', marker=dict(color='red', symbol='triangle-up'))
-fig.add_scatter(x=short_exits_idx, y=close_price[exits_short], mode='markers', name='Short Exit', marker=dict(color='darkred', symbol='triangle-down'))
 
 fig.show()
 

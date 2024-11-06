@@ -1,9 +1,10 @@
 days: 720
 
 band_width_factor: 1.6
-stop_loss_percentage: 0.10
+stop_loss_percentage: 0.20
 median_periods: 6
 risk_ratio: 0.90
+risk_level: 0.05
 
 trading_instrument: "SREN.SW"
 
