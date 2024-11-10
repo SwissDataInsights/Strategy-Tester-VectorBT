@@ -1,12 +1,12 @@
 days: 8
 
 band_width_factor: 1.6
-stop_loss_percentage: 0.20
+stop_loss_percentage: 0.30
 median_periods: 6
 risk_ratio: 0.90
 risk_level: 0.05
 
-trading_instrument: "SREN.SW"
+trading_instrument: "EURUSD"
 
 # "UBSG.SW""SREN.SW""UBSG.SW" "ABBN.SW" 'ALC.SW' 'GEBN.SW' 'GIVN.SW' 'HOLN.SW' 'KNIN.SW' 'LOGN.SW' 'LONN.SW' 'NESN.SW' 'NOVN.SW': 'Novartis'
 # 'PGHN.SW' 'CFR.SW' 'ROG.SW' 'SIKA.SW' 'SOON.SW' 'SLHN.SW' 'SCMN.SW' 'UBSG.SW' 'ZURN.SW': 'ZurichInsurance'
@@ -14,4 +14,4 @@ trading_instrument: "SREN.SW"
 # okresy mediany do obliczeń na danych historycznych
 median_data_60min: 6
 median_data_1440min: 6
-median_data_10080min: 3
+median_data_10080min: 6

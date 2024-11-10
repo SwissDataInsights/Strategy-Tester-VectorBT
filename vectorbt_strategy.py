@@ -16,21 +16,21 @@ stop_loss_percentage = settings.get('stop_loss_percentage')
 risk_level = settings.get('risk_level')  # Dodane dla poziomu ryzyka
 
 # Wczytanie pliku danych dla określonego instrumentu
-file_path = f'data/{trading_instrument}_merged_data.xlsx'
+file_path = 'data/merged_prices.xlsx'
 merged_data = pd.read_excel(file_path)
 
 # Konwersja kolumny 'Datetime' na format datetime i ustawienie jako indeks
-merged_data['Datetime'] = pd.to_datetime(merged_data['Datetime'])
-merged_data.set_index('Datetime', inplace=True)
+merged_data['Time'] = pd.to_datetime(merged_data['Time'])
+merged_data.set_index('Time', inplace=True)
 
 # Ekstrakcja kolumn i konwersja do odpowiednich typów
-close_price = merged_data['Close_x'].astype(float).fillna(0)
-max_price = merged_data['High_x'].astype(float).fillna(0)
-low_price = merged_data['Low_x'].astype(float).fillna(0)
-current_median = merged_data['current_median'].astype(float).fillna(0)
-previous_median = merged_data['previous_median'].astype(float).fillna(0)
-upper_band = merged_data['Upper Band'].astype(float).fillna(0)
-lower_band = merged_data['Lower Band'].astype(float).fillna(0)
+close_price = merged_data['CloseAsk'].astype(float).fillna(0)
+max_price = merged_data['HighAsk'].astype(float).fillna(0)
+low_price = merged_data['LowAsk'].astype(float).fillna(0)
+current_median = merged_data['Median_CloseAsk_10080min'].astype(float).fillna(0)
+previous_median = merged_data['Median_CloseAsk_10080min'].shift(1)
+upper_band = merged_data['Upper_Bollinger'].astype(float).fillna(0)
+lower_band = merged_data['Lower_Bollinger'].astype(float).fillna(0)
 current_risk_ratio = round((current_median / close_price), 4).fillna(0)
 
 # Definiowanie warunków wejścia i wyjścia dla pozycji long i short
