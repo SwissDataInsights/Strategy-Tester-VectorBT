@@ -1,9 +1,9 @@
 days: 8
 
 band_width_factor: 1.6
-stop_loss_percentage: 0.30
+stop_loss_percentage: 0.40
 median_periods: 6
-risk_ratio: 0.90
+risk_ratio: 0.995
 risk_level: 0.05
 
 trading_instrument: "EURUSD"
