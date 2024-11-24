@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83ad3ffc-dd9c-4911-bb3f-f7214f0a911f" name="Changes" comment="data merging for tests">
-      <change afterPath="$PROJECT_DIR$/data/test.py" afterDir="false" />
+    <list default="true" id="83ad3ffc-dd9c-4911-bb3f-f7214f0a911f" name="Changes" comment="minor corrections before modifying the system">
+      <change afterPath="$PROJECT_DIR$/vectorbt_strategy_long.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/graphical_view.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/data/graphical_view.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strategy_optimization.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/system_settings.yml" beforeDir="false" afterPath="$PROJECT_DIR$/system_settings.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vectorbt_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/vectorbt_strategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vectorbt_strategy.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,37 +54,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Notification.DisplayName-DoNotAsk-Vcs Notifications&quot;: &quot;VCS notifications&quot;,
-    &quot;Notification.DoNotAsk-Vcs Notifications&quot;: &quot;true&quot;,
-    &quot;Python.data_merge.executor&quot;: &quot;Run&quot;,
-    &quot;Python.data_preparation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dp_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.graphical_view.executor&quot;: &quot;Run&quot;,
-    &quot;Python.hour_resample.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.strategy_optimization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vbt2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vbt3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vbt_orders.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vbt_reality_check.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vectorbt_strategy.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vectorbt_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vectorbt_x.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/48666/PycharmProjects/MetaVerse/MVVR_NN&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Notification.DisplayName-DoNotAsk-Vcs Notifications": "VCS notifications",
+    "Notification.DoNotAsk-Vcs Notifications": "true",
+    "Python.QSTrader_strategy_test.executor": "Run",
+    "Python.data_merge.executor": "Run",
+    "Python.data_preparation.executor": "Run",
+    "Python.dp_test.executor": "Run",
+    "Python.graphical_view.executor": "Run",
+    "Python.hour_resample.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.strategy_optimization.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.tree.executor": "Run",
+    "Python.vbt2.executor": "Run",
+    "Python.vbt3.executor": "Run",
+    "Python.vbt_orders.executor": "Run",
+    "Python.vbt_reality_check.executor": "Run",
+    "Python.vectorbt_strategy.executor": "Run",
+    "Python.vectorbt_strategy_long.executor": "Run",
+    "Python.vectorbt_strategy_short.executor": "Run",
+    "Python.vectorbt_test.executor": "Run",
+    "Python.vectorbt_x.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/48666/PycharmProjects/Strategy_tester",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\48666\PycharmProjects\Strategy_tester" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\48666\PycharmProjects\Strategy_tester\data" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -158,7 +172,16 @@
       <workItem from="1731790997088" duration="2104000" />
       <workItem from="1731829111960" duration="82000" />
       <workItem from="1731837332468" duration="12000" />
-      <workItem from="1731866504483" duration="1142000" />
+      <workItem from="1731866504483" duration="7991000" />
+      <workItem from="1731950861026" duration="1000" />
+      <workItem from="1731954583707" duration="72000" />
+      <workItem from="1731957156508" duration="50000" />
+      <workItem from="1731963350077" duration="43000" />
+      <workItem from="1732206049437" duration="6000" />
+      <workItem from="1732374436038" duration="2497000" />
+      <workItem from="1732438338205" duration="643000" />
+      <workItem from="1732438998687" duration="11000" />
+      <workItem from="1732439032315" duration="362000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -248,11 +271,30 @@
       <option name="project" value="LOCAL" />
       <updated>1731255043935</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="minor corrections before modifying the system">
+      <option name="closed" value="true" />
+      <created>1731868154976</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731868154976</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
@@ -265,24 +307,29 @@
     <MESSAGE value="vectorbt_strategy.py update" />
     <MESSAGE value="vectorbt_strategy.py rebuild" />
     <MESSAGE value="data merging for tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="data merging for tests" />
+    <MESSAGE value="minor corrections before modifying the system" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor corrections before modifying the system" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Strategy_tester$vbt2.coverage" NAME="vbt2 Coverage Results" MODIFIED="1730495896869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Strategy_tester$test.coverage" NAME="test Coverage Results" MODIFIED="1730468637072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$dp_test.coverage" NAME="dp_test Coverage Results" MODIFIED="1730562297391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_tester$test.coverage" NAME="test Coverage Results" MODIFIED="1730468637072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vbt_orders.coverage" NAME="vbt_orders Coverage Results" MODIFIED="1730544940889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$strategy_optimization.coverage" NAME="strategy_optimization Coverage Results" MODIFIED="1730578202994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$vectorbt_strategy_long.coverage" NAME="vectorbt_strategy_long Coverage Results" MODIFIED="1732438597181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$strategy_optimization.coverage" NAME="strategy_optimization Coverage Results" MODIFIED="1732438856897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vectorbt_test.coverage" NAME="vectorbt_test Coverage Results" MODIFIED="1730465630795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$data_preparation.coverage" NAME="data_preparation Coverage Results" MODIFIED="1730560029032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$main.coverage" NAME="main Coverage Results" MODIFIED="1730750019255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$vectorbt_strategy.coverage" NAME="vectorbt_strategy Coverage Results" MODIFIED="1731866541263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$vectorbt_strategy.coverage" NAME="vectorbt_strategy Coverage Results" MODIFIED="1732375588737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$vectorbt_strategy_short.coverage" NAME="vectorbt_strategy_short Coverage Results" MODIFIED="1732438346572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vbt3.coverage" NAME="vbt3 Coverage Results" MODIFIED="1730542640197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$data_preparation.coverage" NAME="data_preparation Coverage Results" MODIFIED="1730562517008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vectorbt_x.coverage" NAME="vectorbt_x Coverage Results" MODIFIED="1730483985410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$tree.coverage" NAME="tree Coverage Results" MODIFIED="1732439035393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_tester$vbt_reality_check.coverage" NAME="vbt_reality_check Coverage Results" MODIFIED="1730549047718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$hour_resample.coverage" NAME="hour_resample Coverage Results" MODIFIED="1731177470811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$test.coverage" NAME="test Coverage Results" MODIFIED="1731258344407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$QSTrader_strategy_test.coverage" NAME="QSTrader_strategy_test Coverage Results" MODIFIED="1732376903779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$graphical_view.coverage" NAME="graphical_view Coverage Results" MODIFIED="1731095839220" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Strategy_Tester_VectorBT$data_merge.coverage" NAME="data_merge Coverage Results" MODIFIED="1731783269427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
   </component>
